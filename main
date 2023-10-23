@@ -1,0 +1,63 @@
+<html> 
+<head>
+    <title>Date Widget Notion</title> 
+    <style>
+      #lbl {
+        display: flex;
+        font-family: sans-serif;
+        font-size: 18pt;
+        color: #ff5757;
+        padding: 5px;
+        border: 1px solid #ffffff;
+        justify-content: left;
+        line-height: 1.5;
+        height: 85%;
+        font-weight: bold;
+        flex-direction: row;
+      }
+
+      #container {
+        display: flex;
+        align-items: flex-start;
+      }
+
+      #date {
+          font-size: 12pt;
+          font-weight: bold;
+          text-transform: uppercase;
+      }
+
+      body {
+          background-color: #ffffff;
+      }
+    </style>
+</head>
+<body>
+    <div id="lbl"></div>
+</body>
+
+<script>
+    var weekday = new Array(7);
+    weekday[0] = "Sun";
+    weekday[1] = "Mon";
+    weekday[2] = "Tue";
+    weekday[3] = "Wed";
+    weekday[4] = "Thu";
+    weekday[5] = "Fri";
+    weekday[6] = "Sat";
+
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"
+    ];
+
+    var today = new Date();
+    var dayOfWeek = weekday[today.getDay()];
+    var date = `${dayOfWeek}<br>${monthNames[today.getMonth()]} ${today.getDate()}<br>${today.getFullYear()}`;
+
+    document.getElementById('lbl').innerHTML = `
+        <div class="container">
+          <div id="date">${date}</div>
+        <div/>
+    `;
+</script> 
+</html>
